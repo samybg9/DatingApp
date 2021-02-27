@@ -14,6 +14,8 @@ namespace API.Extensions
     {
         public static IServiceCollection AddIdentityServies(this IServiceCollection services, IConfiguration config)
         {
+            string the_key = config["TokenKey"];
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
