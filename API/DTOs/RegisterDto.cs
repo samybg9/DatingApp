@@ -9,6 +9,7 @@ namespace API.DTOs
     public class RegisterDto
     {
         [Required]
+        [StringLength(50, MinimumLength = 3)]
         [RegularExpression("^((?!.*mangal).)*", ErrorMessage = "No mangals allowed!")]
         public string Username { get; set; }
         
