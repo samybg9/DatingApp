@@ -1,4 +1,7 @@
 ﻿using API.Data;
+using API.DTOs;
+using API.Entities;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -13,11 +16,13 @@ namespace API.Controllers
     {
         private readonly DataContext _context;
         private readonly IConfiguration _config;
+        private readonly IMapper _mapper;
 
-        public TestController(DataContext context, IConfiguration config)
+        public TestController(DataContext context, IConfiguration config, IMapper mapper)
         {
             _context = context;
             _config = config;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -26,6 +31,7 @@ namespace API.Controllers
         {
             return _config["TokenKey"];
         }
+
 
     }
 }
